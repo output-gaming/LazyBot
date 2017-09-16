@@ -2,8 +2,10 @@
   "name": "rvltbot",
   "version": "1.0.0",
   "description": "Team revolt discord bot",
-  "main": "app.js",
+  "main": "bot.js",
   "dependencies": {
+    "axios": "^0.16.2",
+    "bufferutil": "^3.0.2",
     "discord.js": "^11.2.1"
   },
   "devDependencies": {},
