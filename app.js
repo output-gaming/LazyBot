@@ -1,17 +1,21 @@
 const Discord = require("discord.js");
 const axios = require("axios");
-
-axios.defaults.baseURL =  'https://api.battlemetrics.com';
-axios.defaults.headers.common['Authorization'] = "Bearer privateyo";
-axios.defaults.headers.post['Content-Type'] = 'application/json';
-
-
-const bot = new Discord.Client({disableEveryone: true});
+const moment = require('moment');
+const Cleverbot = require('cleverbot-api-node');
+const Clever = new Cleverbot('CC4juTxcEMGQmToYk91dP7WD01w');
 
 // Here we load the config.json file that contains our token and our prefix values.
 const config = require("./botsettings.json");
 // config.token contains the bot's token
 // config.prefix contains the message prefix.
+// config.batmetrics contains battlemetrics token
+
+axios.defaults.baseURL =  'https://api.battlemetrics.com';
+axios.defaults.headers.common['Authorization'] = "Bearer "+config.batmetrics;
+axios.defaults.headers.post['Content-Type'] = 'application/json';
+
+const bot = new Discord.Client({disableEveryone: true});
+
 
 bot.on("ready", () => {
   // This event will run if the bot starts, and logs in, successfully.
@@ -21,27 +25,13 @@ bot.on("ready", () => {
   bot.user.setGame(`Helping you`);
 });
 
-//Annoying and not needed.
-
-// bot.on("guildCreate", guild => {
-//   // This event triggers when the bot joins a guild.
-//   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-//   client.user.setGame(`on ${client.guilds.size} servers`);
-// });
-//
-// bot.on("guildDelete", guild => {
-//   // this event triggers when the bot is removed from a guild.
-//   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-//   bot.user.setGame(`on ${bot.guilds.size} servers`);
-// });
-
-
 bot.on('guildMemberAdd', member => {
-   member.send("Welcome to the Team Revolt discord!, use !help for more info and rules.");
+   member.send("Welcome to the Team Revolt discord!, use **!help** for more help.");
 });
 
 bot.on("message", async message => {
-  // This event will run on every single message received, from any channel or DM.
+
+
 
   // It's good practice to ignore other bots. This also makes your bot ignore itself
   // and not get into a spam loop (we call that "botception").
@@ -49,7 +39,7 @@ bot.on("message", async message => {
 
   // Also good practice to ignore any message that does not start with our prefix,
   // which is set in the configuration file.
-  if(message.content.indexOf(config.prefix) !== 0) return;
+  //if(message.content.indexOf(config.prefix) == 0) return;
 
   // Here we separate our "command" name, and our "arguments" for the command.
   // e.g. if we have the message "+say Is this the real life?" , we'll get the following:
@@ -57,6 +47,24 @@ bot.on("message", async message => {
   // args = ["Is", "this", "the", "real", "life?"]
   const args = message.content.slice(config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
+
+
+  if (message.channel.type === "dm" && message.channel.mentions) {
+
+    message.channel.startTyping();
+
+    setTimeout(() => {
+      Clever.request(args).then(function(response) {
+        console.log(response.output);
+        message.channel.send(response.output);
+        message.channel.stopTyping();
+      }, Math.random() * (1 - 3) + 1 * 1000);
+     }).catch(function(error) {
+      console.error(error);
+
+    });
+  }
+
 
   // Let's go with a few common example commands! Feel free to delete or change those.
 
@@ -156,16 +164,20 @@ bot.on("message", async message => {
            url: "https://i.imgur.com/j6YMTdL.png" //help image
         },
         fields: [{
+          name: "I have been banned?",
+          value: "I can help you with this,use **!banid IDHERE** and I will search it for you."
+        },
+          {
             name: "Why is no one in voice?",
             value: "Well ah, voice in discord actually sucks, join our [TeamSpeak](ts3server://ts3.teamrevolt.org)."
           },
           {
             name: "Lost your KoTH profile?",
-            value: "Use !profile to learn more about this."
+            value: "Use **!profile** to learn more about this."
           },
           {
             name: "Servers",
-            value: "We run a lot, vist the forum they can be found there. I'm Lazy after all."
+            value: "We run a lot, vist the [forum](https://teamrevolt.org) they can be found there."
           }
         ],
         timestamp: new Date(),
@@ -210,6 +222,8 @@ bot.on("message", async message => {
       // get the id so we can search
       let banID = args.join(" ");
 
+      message.reply("Just hunting it down..")
+
       let url = '/bans?filter[search]='+banID;
       // Gets the ban counts from battlemetrics
       let getConfig = {
@@ -219,19 +233,36 @@ bot.on("message", async message => {
       axios.get(url, getConfig)
       .then(function (response) {
 
-        let result = JSON.stringify(response.data);
+        let result = response.data;
+        let expires = ""+ moment(result['data'][0]['attributes']['expires']).endOf('day').fromNow()+" or "+ moment(result['data'][0]['attributes']['expires']).format('MMMM Do YYYY, h:mm:ss a');
+        let banURL = "[Open Ban #"+result['data'][0]['id']+"](https://www.battlemetrics.com/rcon/bans/edit/"+result['data'][0]['id']+")";
+        console.log(result.data);
 
         let embed = new Discord.RichEmbed()
-            .setAuthor("We found your ban")
-            .setDescription("Looks like you broke a rule... naughty!")
+            .setAuthor("I found the ban")
+            .setDescription("Looks like they broke a rule... naughty!")
             .setColor("#3f542f")
-            .addField("Expires", result['data'][0]['attributes']['expires']); //broken :(
+            .addField("Type", result['data'][0]['type'])
+            .addField('Reason', result['data'][0]['attributes']['reason'])
+            .addField('Expires', expires);
 
+        let PrivateEmbed = new Discord.RichEmbed()
+            .setAuthor("A Ban was queried")
+            .setDescription("I found the following ban")
+            .setColor("#3f542f")
+            .addField("Type", result['data'][0]['type'])
+            .addField('Reason', result['data'][0]['attributes']['reason'])
+            .addField('Expires', expires)
+            .addField('Note', result['data'][0]['attributes']['note'])
+            .addField('Battle Metrics', banURL);
 
-        message.channel.sendEmbed(embed);
+        message.channel.sendEmbed(embed)
+        bot.channels.get("357434597979586560").sendEmbed(PrivateEmbed);
+
       })
       .catch(function (error) {
-        console.log(error);
+        message.reply("Sorry, couldn't find it.")
+        console.log('error');
       });
 
   }
@@ -258,6 +289,11 @@ bot.on("message", async message => {
     message.reply("you, lean nodejs");
 
   }
+
+
+
+
+
 });
 
 bot.login(config.token);
