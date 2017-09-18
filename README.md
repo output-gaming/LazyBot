@@ -12,7 +12,7 @@ Add your tokens for both discord & battle metrics
 
 Invite bot to servers
 
-#How do I add my bot account to a server?
+# How do I add my bot account to a server?
 
 Note: You can only add a bot account to a server that you have Manage Server permissions on.
 The link to add your bot account to a server is provided in the console window when you run the bot and it is not on any servers.
