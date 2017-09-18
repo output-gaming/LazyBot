@@ -151,7 +151,7 @@ bot.on("message", async message => {
   }
   if (command === 'help') {
 
-    message.author.send({embed:{
+    message.reply({embed:{
         color: 3447003,
         author: {
           name: bot.user.username,
@@ -189,6 +189,43 @@ bot.on("message", async message => {
     });
 
   }
+
+  if (command === 'profile') {
+
+      message.reply({embed:{
+          color: 3447003,
+          // author: {
+          //   name: bot.user.username,
+          //   icon_url: bot.user.avatarURL
+          // },
+          title: "Profile Restore",
+          description: "Oh no, someone didnt back up did they.....",
+          // image: {
+          //    url: "https://i.imgur.com/j6YMTdL.png" //help image
+          // },
+          fields: [{
+            name: "First",
+            value: "Profiles can only presently be done via Discord. Restores can happen at anytime around the clock, and are done by random community members. We don't organise any Restorations"
+          },
+            {
+              name: "Second",
+              value: "Join the [WS Discord](https://discord.gg/T7QP6cJ)"
+            },
+            {
+              name: "Third",
+              value: "Read WS Discord & Do what they request & wait."
+            }
+          ],
+          timestamp: new Date(),
+          footer: {
+            icon_url: bot.user.avatarURL,
+            text: "©LazyBot, The Revolt Slave"
+          }
+        }
+      });
+
+  }
+
 
   if (command === 'bans'){
     if(!message.member.roles.some(r=>["Team Revolt Admin", "Team Revolt Staff" , "Game Server Admin"].includes(r.name)) )
@@ -268,17 +305,6 @@ bot.on("message", async message => {
   }
 
 
-  if (command === 'profile') {
-
-      let embed = new Discord.RichEmbed()
-          .setAuthor("Profile Restore")
-          .setDescription("Oh no, someone didnt back up did they.....")
-          .setColor("#3f542f")
-          .addField("First", "Profiles can only presently be done via Discord. Restores can happen at anytime around the clock, and are done by random community members. We don't organise any Restorations.")
-          .addField("Second", "Join the WS Discord https://discord.gg/T7QP6cJ");
-
-      message.author.sendEmbed(embed);
-  }
 
   if (command === 'Who rocks') {
     message.reply('My creator, revolt| fingerguns');
@@ -289,10 +315,6 @@ bot.on("message", async message => {
     message.reply("you, lean nodejs");
 
   }
-
-
-
-
 
 });
 
