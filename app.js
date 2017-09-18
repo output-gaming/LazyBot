@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const axios = require("axios");
 const moment = require('moment');
 const Cleverbot = require('cleverbot-api-node');
-const Clever = new Cleverbot('CC4juTxcEMGQmToYk91dP7WD01w');
+
 
 // Here we load the config.json file that contains our token and our prefix values.
 const config = require("./botsettings.json");
@@ -10,6 +10,7 @@ const config = require("./botsettings.json");
 // config.prefix contains the message prefix.
 // config.batmetrics contains battlemetrics token
 
+const Clever = new Cleverbot(config.cleverbot);
 axios.defaults.baseURL =  'https://api.battlemetrics.com';
 axios.defaults.headers.common['Authorization'] = "Bearer "+config.batmetrics;
 axios.defaults.headers.post['Content-Type'] = 'application/json';
@@ -49,7 +50,7 @@ bot.on("message", async message => {
   const command = args.shift().toLowerCase();
 
 
-  if (message.channel.type === "dm" && message.channel.mentions) {
+  if (message.channel.type === "dm") {
 
     message.channel.startTyping();
 

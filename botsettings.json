@@ -1,5 +1,6 @@
 {
   "token": "token",
-  "prefix":"!"
-
+  "prefix":"!",
+  "batmetrics": " token",
+  "cleverbot": "token"
 }
