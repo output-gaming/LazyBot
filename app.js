@@ -1,7 +1,5 @@
-const botSettings = require("./botsettings.json");
 const Discord = require("discord.js");
-
-var axios = require("axios");
+const axios = require("axios");
 
 axios.defaults.baseURL =  'https://api.battlemetrics.com';
 axios.defaults.headers.common['Authorization'] = "Bearer privateyo";
@@ -20,20 +18,22 @@ bot.on("ready", () => {
   console.log(`Bot has started, with ${bot.users.size} users, in ${bot.channels.size} channels of ${bot.guilds.size} guilds. `);
   // Example of changing the bot's playing game to something useful. `bot.user` is what the
   // docs refer to as the "botUser".
-    bot.user.setGame(`on ${bot.guilds.size} servers`);
+  bot.user.setGame(`Helping you`);
 });
 
-bot.on("guildCreate", guild => {
-  // This event triggers when the bot joins a guild.
-  console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
-  client.user.setGame(`on ${client.guilds.size} servers`);
-});
+//Annoying and not needed.
 
-bot.on("guildDelete", guild => {
-  // this event triggers when the bot is removed from a guild.
-  console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
-  bot.user.setGame(`on ${bot.guilds.size} servers`);
-});
+// bot.on("guildCreate", guild => {
+//   // This event triggers when the bot joins a guild.
+//   console.log(`New guild joined: ${guild.name} (id: ${guild.id}). This guild has ${guild.memberCount} members!`);
+//   client.user.setGame(`on ${client.guilds.size} servers`);
+// });
+//
+// bot.on("guildDelete", guild => {
+//   // this event triggers when the bot is removed from a guild.
+//   console.log(`I have been removed from: ${guild.name} (id: ${guild.id})`);
+//   bot.user.setGame(`on ${bot.guilds.size} servers`);
+// });
 
 
 bot.on('guildMemberAdd', member => {
@@ -153,7 +153,7 @@ bot.on("message", async message => {
         url: "https://teamrevolt.org",
         description: "Help is subjective and hard sometimes, below is what I can help you with..",
         image: {
-           url: "https://i.imgur.com/j6YMTdL.png"
+           url: "https://i.imgur.com/j6YMTdL.png" //help image
         },
         fields: [{
             name: "Why is no one in voice?",
@@ -179,7 +179,8 @@ bot.on("message", async message => {
   }
 
   if (command === 'bans'){
-
+    if(!message.member.roles.some(r=>["Team Revolt Admin", "Team Revolt Staff" , "Game Server Admin"].includes(r.name)) )
+      return message.reply("Sorry, you don't have permissions to use this!");
       // Gets the ban counts from battlemetrics
       axios.get('/bans')
         .then(function (response) {
@@ -202,6 +203,36 @@ bot.on("message", async message => {
         .catch(function (error) {
           console.log(error);
         });
+
+  }
+
+  if (command === 'banid'){
+      // get the id so we can search
+      let banID = args.join(" ");
+
+      let url = '/bans?filter[search]='+banID;
+      // Gets the ban counts from battlemetrics
+      let getConfig = {
+          scope:'ban:read'
+        }
+
+      axios.get(url, getConfig)
+      .then(function (response) {
+
+        let result = JSON.stringify(response.data);
+
+        let embed = new Discord.RichEmbed()
+            .setAuthor("We found your ban")
+            .setDescription("Looks like you broke a rule... naughty!")
+            .setColor("#3f542f")
+            .addField("Expires", result['data'][0]['attributes']['expires']); //broken :(
+
+
+        message.channel.sendEmbed(embed);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
 
   }
 
