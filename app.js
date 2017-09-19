@@ -247,7 +247,7 @@ bot.on("message", async message => {
               .addField("Expired", expired)
               .addField("Total", total);
 
-          message.channel.sendEmbed(embed);
+          message.channel.send(embed);
 
         })
         .catch(function (error) {
@@ -294,8 +294,8 @@ bot.on("message", async message => {
             .addField('Note', result['data'][0]['attributes']['note'])
             .addField('Battle Metrics', banURL);
 
-        message.channel.sendEmbed(embed)
-        bot.channels.get("357434597979586560").sendEmbed(PrivateEmbed);
+        message.channel.send(embed)
+        bot.channels.get("357434597979586560").send(PrivateEmbed);
 
       })
       .catch(function (error) {
