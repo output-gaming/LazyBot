@@ -317,7 +317,12 @@ bot.on("message", async message => {
 
   }
   if (command === 'servers'){
-    message.reply('Check our our Arma 3 Servers<br><br>[ARMAKOTH.COM - King Of The Hill - AU #1 - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238223.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)[ARMAKOTH.COM - King Of The Hill - AU #2 LV - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238225.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)[ARMAKOTH.COM - King Of The Hill - AU#3 INF HC - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238222.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)')
+    message.reply('Check our our Arma 3 Servers!!!')
+
+    message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238223.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU1.jpg', 'ARMAKOTH.COM - King Of The Hill - AU #1 - teamrevolt.org');
+    message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238225.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU2.jpg', 'ARMAKOTH.COM - King Of The Hill - AU #2 LV - teamrevolt.org');
+    message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238222.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU3.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#3 INF HC - teamrevolt.org');
+
   }
 
 });
