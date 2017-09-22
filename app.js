@@ -178,7 +178,7 @@ bot.on("message", async message => {
           },
           {
             name: "Servers",
-            value: "Check our our Arma 3 Servers<br><br>[ARMAKOTH.COM - King Of The Hill - AU #1 - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238223.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)[ARMAKOTH.COM - King Of The Hill - AU #2 LV - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238225.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)[ARMAKOTH.COM - King Of The Hill - AU#3 INF HC - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238222.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)"
+            value: "Use !servers to List our servers"
           }
         ],
         timestamp: new Date(),
@@ -315,6 +315,9 @@ bot.on("message", async message => {
 
     message.reply("you, lean nodejs");
 
+  }
+  if (command === 'servers'){
+    message.reply('Check our our Arma 3 Servers<br><br>[ARMAKOTH.COM - King Of The Hill - AU #1 - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238223.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)[ARMAKOTH.COM - King Of The Hill - AU #2 LV - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238225.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)[ARMAKOTH.COM - King Of The Hill - AU#3 INF HC - teamrevolt.org](https://cdn.battlemetrics.com/b/horizontal500x80px/238222.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700)')
   }
 
 });
