@@ -190,6 +190,46 @@ bot.on("message", async message => {
     });
 
   }
+  
+ if (command === 'profile') {
+
+      message.reply({embed:{
+          color: 3447003,
+          // author: {
+          //   name: bot.user.username,
+          //   icon_url: bot.user.avatarURL
+          // },
+          title: "Report Player",
+          description: "Oh no, someone breaking the rules??, Please log a report in the #player-reports channel using the following format",
+          // image: {
+          //    url: "https://i.imgur.com/j6YMTdL.png" //help image
+          // },
+          fields: [{
+            name: "The player you wish to report",
+            value: "The name of the player"
+          },
+            {
+              name: "The server the player is on (and if possible the team the player is on)",
+              value: "Any of our Arma servers, AU#1,2,3 or Exile"
+            },
+            {
+              name: "The rule they are breaking",
+              value: "Please state the rule they broke or you belive they were breaking."
+            },
+            {
+              name: "Proof (Screenshots/Video)",
+              value: "Please link your evidence" 
+            }
+          ],
+          timestamp: new Date(),
+          footer: {
+            icon_url: bot.user.avatarURL,
+            text: "©LazyBot, The Revolt Slave"
+          }
+        }
+      });
+
+  }
 
   if (command === 'profile') {
 
