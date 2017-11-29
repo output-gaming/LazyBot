@@ -359,7 +359,8 @@ bot.on("message", async message => {
     message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238222.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU3.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#3 INF HC - teamrevolt.org');
 	  message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1606046.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU1-1.jpg', 'ARMAKOTH.COM - King Of The Hill 1944 - AU#1 - teamrevolt.org');
 	  message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1400569.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'EXILE.jpg', 'Team Revolt Exile NEW|CHERNO|BOUNTIES|TOWING|LOADING|VG|HACK|GR');
-
+    message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1714063.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'sdtd.jpg', 'Team Revolt - Can you Survive?');
+1714063
   }
 
 });
