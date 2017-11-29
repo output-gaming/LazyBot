@@ -178,7 +178,11 @@ bot.on("message", async message => {
           },
           {
             name: "Servers",
-            value: "Use !servers to List our servers"
+            value: "Use **!servers** to List our servers"
+          },
+          {
+            name: "Report player",
+            value: "Use **!report* and follow the prompt."
           }
         ],
         timestamp: new Date(),
