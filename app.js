@@ -182,7 +182,7 @@ bot.on("message", async message => {
           },
           {
             name: "Report player",
-            value: "Use **!report* and follow the prompt."
+            value: "Use **!report** and follow the prompt."
           }
         ],
         timestamp: new Date(),
