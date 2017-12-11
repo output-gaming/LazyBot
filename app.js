@@ -366,6 +366,18 @@ bot.on("message", async message => {
 	message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1400569.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'EXILE.jpg', 'Team Revolt Exile NEW|CHERNO|BOUNTIES|TOWING|LOADING|VG|HACK|GR');
 
   }
+  }
+  if (command === 'teamspeak') {
+
+    message.reply("ts3.teamrevolt.org");
+	
+  }
+  }
+  if (command === 'ts3') {
+
+    message.reply("ts3.teamrevolt.org");
+	
+  }
 
 });
 
