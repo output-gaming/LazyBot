@@ -178,7 +178,11 @@ bot.on("message", async message => {
           },
           {
             name: "Servers",
-            value: "Use !servers to List our servers"
+            value: "Use **!servers** to List our servers"
+          },
+          {
+            name: "Report player",
+            value: "Use **!report** and follow the prompt."
           }
         ],
         timestamp: new Date(),
@@ -190,8 +194,8 @@ bot.on("message", async message => {
     });
 
   }
-  
- if (command === 'profile') {
+
+ if (command === 'report') {
 
       message.reply({embed:{
           color: 3447003,
@@ -218,7 +222,7 @@ bot.on("message", async message => {
             },
             {
               name: "Proof (Screenshots/Video)",
-              value: "Please link your evidence" 
+              value: "Please link your evidence"
             }
           ],
           timestamp: new Date(),
@@ -345,26 +349,24 @@ bot.on("message", async message => {
 
   }
 
-
-
   if (command === 'Who rocks') {
     message.reply('My creator, revolt| fingerguns');
-
   }
   if (command === 'Who sucks') {
-
     message.reply("you, lean nodejs");
-
   }
-  if (command === 'servers'){
-    message.reply('Check our our Arma 3 Servers!!!')
 
+  if (command === 'servers'){
+
+
+
+    message.reply('Check out our Servers!!!')
     message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238223.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU1.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#1 NOJETS - teamrevolt.org');
     message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238225.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU2.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#2 LV - teamrevolt.org');
     message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238222.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU3.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#3 INF HC - teamrevolt.org');
-	message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1606046.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU1-1.jpg', 'ARMAKOTH.COM - King Of The Hill 1944 - AU#1 - teamrevolt.org');
-	message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1400569.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'EXILE.jpg', 'Team Revolt Exile NEW|CHERNO|BOUNTIES|TOWING|LOADING|VG|HACK|GR');
-
+	  message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1606046.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU1-1.jpg', 'ARMAKOTH.COM - King Of The Hill 1944 - AU#1 - teamrevolt.org');
+	  message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1400569.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'EXILE.jpg', 'Team Revolt Exile NEW|CHERNO|BOUNTIES|TOWING|LOADING|VG|HACK|GR');
+    message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1714063.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'sdtd.jpg', 'Team Revolt - Can you Survive? | 7days to die');
   }
   }
   if (command === 'teamspeak') {
@@ -379,6 +381,13 @@ bot.on("message", async message => {
 	
   }
 
+  function wait(ms){
+     var start = new Date().getTime();
+     var end = start;
+     while(end < start + ms) {
+       end = new Date().getTime();
+    }
+  }
 });
 
 bot.login(config.token);
