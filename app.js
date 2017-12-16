@@ -357,9 +357,6 @@ bot.on("message", async message => {
   }
 
   if (command === 'servers'){
-
-
-
     message.reply('Check out our Servers!!!')
     message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238223.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU1.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#1 NOJETS - teamrevolt.org');
     message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238225.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU2.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#2 LV - teamrevolt.org');
@@ -368,17 +365,12 @@ bot.on("message", async message => {
 	  message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1400569.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'EXILE.jpg', 'Team Revolt Exile NEW|CHERNO|BOUNTIES|TOWING|LOADING|VG|HACK|GR');
     message.channel.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/1714063.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'sdtd.jpg', 'Team Revolt - Can you Survive? | 7days to die');
   }
-  }
-  if (command === 'teamspeak') {
 
-    message.reply("ts3.teamrevolt.org");
-	
-  }
+  if (command === 'teamspeak') {
+    message.reply("Join our teamspeak - ts3.teamrevolt.org");
   }
   if (command === 'ts3') {
-
-    message.reply("ts3.teamrevolt.org");
-	
+    message.reply("Join our teamspeak - ts3.teamrevolt.org");
   }
 
   function wait(ms){
