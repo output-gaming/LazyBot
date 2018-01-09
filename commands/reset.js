@@ -42,12 +42,12 @@ module.exports = class extends Command
           // },
           fields: [{
             name: "READ",
-            value: "Do NOT play on ANY modded/pirated "bonus xp" servers again, or your ban will be permanent. To make sure you are playing on the Official KotH servers, consider downloading the launcher (https://www.a3cdn.com/) Type !launcher for more details." 
+            value: "Do NOT play on ANY modded/pirated bonus xp servers again, or your ban will be permanent. To make sure you are playing on the Official KotH servers, consider downloading the launcher (https://www.a3cdn.com/) Type !launcher for more details." 
 "
           },
             {
               name: "RESET",
-              value: "In order to be unbanned, please head to your documents folder and delete the "Arma 3" and "Arma 3 - Other Profiles" folders Seen in gif below https://i.imgur.com/FxiD3o1.gif."
+              value: "In order to be unbanned, please head to your documents folder and delete the Arma 3 and Arma 3 - Other Profiles folders Seen in gif below https://i.imgur.com/FxiD3o1.gif."
             },
             {
               name: "Wait",
