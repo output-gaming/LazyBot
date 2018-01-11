@@ -29,7 +29,7 @@ module.exports = class extends Command
 	action(message, args)
 	{
 
-		message.reply({embed:{
+		message.author.sendMessage({embed:{
           color: 3447003,
           // author: {
           //   name: bot.user.username,
