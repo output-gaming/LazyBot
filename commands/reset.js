@@ -43,7 +43,6 @@ module.exports = class extends Command
           fields: [{
             name: "READ",
             value: "Do NOT play on ANY modded/pirated bonus xp servers again, or your ban will be permanent. To make sure you are playing on the Official KotH servers, consider downloading the launcher (https://www.a3cdn.com/) Type !launcher for more details." 
-"
           },
             {
               name: "RESET",
