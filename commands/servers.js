@@ -28,7 +28,7 @@ module.exports = class extends Command
 
 	action(message, args)
 	{
-		message.reply('Sending you a DM Our current game servers.')
+		message.reply('Sending you a DM with our current game servers.')
 		message.author.sendMessage("Retrieving our current games servers now.")
 		message.author.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238223.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU1.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#1 NOJETS - teamrevolt.org');
 		message.author.sendFile('https://cdn.battlemetrics.com/b/horizontal500x80px/238225.png?foreground=%23EEEEEE&background=%23222222&lines=%23333333&linkColor=%231185ec&chartColor=%23FF0700', 'AU2.jpg', 'ARMAKOTH.COM - King Of The Hill - AU#2 LV - teamrevolt.org');
