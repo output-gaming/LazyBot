@@ -41,14 +41,14 @@ module.exports = class extends Command
 			// },
 			fields: [{
 			  name: "My stats are wiped?",
-			  value: "V10 is now live, due to the large mismatch in data it wasn't feasible to migrate player data."
+			  value: "With v10 now being live & a large mismatch in data it wasn't feasible to migrate player data."
 			},
 			  {
 				name: "ArmaKoth Battle Stats",
 				value: "With the welcome of V10 ArmaKoth are able to track player stats and make loosing profiles a thing of the past. View global stats, leaderboards and player stats at [ArmaKoth BattleStats](https://stats.armakoth.com)" 
 			  },
 			  {
-				name: "I'm not convienced!!",
+				name: "I'm not convinced!!",
 				value: "Read the offical launch blog post [Here](https://blog.armakoth.com/rhs-king-of-the-hill-43a854a581d0) or the post about the wipe [here](https://blog.armakoth.com/important-community-restructure-8aeb0f8ec3ac)"
 			  }
 			],
