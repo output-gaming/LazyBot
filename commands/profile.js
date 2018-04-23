@@ -36,21 +36,21 @@ module.exports = class extends Command
           //   icon_url: bot.user.avatarURL
           // },
           title: "Profile Restore",
-          description: "Oh no, someone didnt back up did they.....",
+          description: "Profile restore?! What is this v9? HA!",
           // image: {
           //    url: "https://i.imgur.com/j6YMTdL.png" //help image
           // },
           fields: [{
             name: "First",
-            value: "Profiles can only presently be done via Discord. Restores can happen at anytime around the clock, and are done by random community members. We don't organise any Restorations"
+            value: "V10 is now live, this is no longer possible."
           },
             {
               name: "Second",
-              value: "Join the [WS Discord](https://discord.gg/T7QP6cJ)"
+              value: "Go level, or [read this0](https://blog.armakoth.com/rhs-king-of-the-hill-43a854a581d0)"
             },
             {
               name: "Third",
-              value: "Read WS Discord & Do what they request & wait."
+              value: "Track your stats [ArmaKoth BattleStats](https://stats.armakoth.com)."
             }
           ],
           timestamp: new Date(),
