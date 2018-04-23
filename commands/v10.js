@@ -8,7 +8,7 @@ module.exports = class extends Command
 			name: 'v10',
 			desc: 'V10! info',
 			usage: '<prefix>v10',
-      aliases: ['teamspeak']
+      aliases: ['wipe']
 			/* The remaining fields are optional
 			aliases: ['p'],
 			info: 'A basic ping/pong command example.',
