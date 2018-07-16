@@ -5,10 +5,10 @@ module.exports = class extends Command
 	constructor()
 	{
 		super({
-			name: 'ts3',
-			desc: 'returns our teamspeak server details!',
-			usage: '<prefix>ts3',
-      aliases: ['teamspeak']
+			name: 'og',
+			desc: 'returns a general response about og',
+			usage: '<prefix>og',
+			aliases: ['ogoc','outputgaming']
 			/* The remaining fields are optional
 			aliases: ['p'],
 			info: 'A basic ping/pong command example.',
@@ -28,6 +28,6 @@ module.exports = class extends Command
 
 	action(message, args)
 	{
-		message.reply("Join our teamspeak - ts3.ogoc.in");
+		message.reply("OG aka output gaming are a gaming community that is communtiy run, find more information at https://ogoc.in");
 	}
 }

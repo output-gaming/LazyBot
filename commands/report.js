@@ -8,7 +8,7 @@ module.exports = class extends Command
 			name: 'report',
 			desc: 'Someone cheaing? find out how to report them',
 			usage: '<prefix>report',
-      aliases: ['hacker','cheater']
+			aliases: ['hacker','cheater']
 			/* The remaining fields are optional
 			aliases: ['p'],
 			info: 'A basic ping/pong command example.',
@@ -29,37 +29,30 @@ module.exports = class extends Command
 	action(message, args)
 	{
 		message.reply({embed:{
-				color: 3447003,
-				// author: {
-				//   name: bot.user.username,
-				//   icon_url: bot.user.avatarURL
-				// },
-				title: "Report Player",
-				description: "Oh no, someone breaking the rules??, Please log a report in the #player-reports channel using the following format",
-				// image: {
-				//    url: "https://i.imgur.com/j6YMTdL.png" //help image
-				// },
-				fields: [{
-					name: "The player you wish to report",
-					value: "The name of the player"
+			color: 3447003,
+			title: "Report Player",
+			description: "Oh no, someone breaking the rules??, Please email **report@ogoc.in** using the following format",
+			fields: [{
+				name: "The player you wish to report",
+				value: "The name of the player"
+			},
+				{
+					name: "The server the player is on (and if possible the team the player is on)",
+					value: "Any of our Arma servers, AU#1,2 or Exile"
 				},
-					{
-						name: "The server the player is on (and if possible the team the player is on)",
-						value: "Any of our Arma servers, AU#1,2,3 or Exile"
-					},
-					{
-						name: "The rule they are breaking",
-						value: "Please state the rule they broke or you belive they were breaking."
-					},
-					{
-						name: "Proof (Screenshots/Video)",
-						value: "Please link your evidence"
-					}
-				],
-				timestamp: new Date(),
-				footer: {
-					text: "©LazyBot, The Revolt Slave"
+				{
+					name: "The rule they are breaking",
+					value: "Please state the rule they broke or you belive they were breaking."
+				},
+				{
+					name: "Proof (Screenshots/Video)",
+					value: "Please link your evidence"
 				}
+			],
+			timestamp: new Date(),
+			footer: {
+				text: "©LazyBot, The Revolt Slave"
+			}
 			}
 		});
 	}

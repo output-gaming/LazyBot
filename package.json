@@ -7,8 +7,8 @@
     "axios": "^0.16.2",
     "bufferutil": "^3.0.2",
     "cleverbot-api-node": "0.0.4",
-    "discord.js": "^11.2.1",
-    "moment": "^2.19.4",
+    "discord.js": "^11.3.2",
+    "moment": "^2.22.2",
     "yamdbf": "^3.0.1"
   },
   "devDependencies": {},
